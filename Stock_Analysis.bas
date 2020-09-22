@@ -10,6 +10,8 @@ Sub Stock_Analysis()
         Dim total As Double
         Dim year_open As Double
         Dim year_close As Double
+        Dim yearly_change As Double
+        Dim percent_change As Double
         
         ticker_count = 1
         total = 0
@@ -40,7 +42,7 @@ Sub Stock_Analysis()
                 'Set Year Open values
                 year_open = WS.Cells(i, 3).Value
 
-                'inputting row values for "Ticker" column
+                'outputting row values for "Ticker" column
                 WS.Cells(ticker_count, 9).Value = ticker
 
                 'Set first total volume for new ticker
@@ -51,7 +53,42 @@ Sub Stock_Analysis()
                 'If ticker symbol is the same add to total
                 total = total + WS.Cells(i, 7).Value
                 WS.Cells(counter, 12).Value = total
-        End If
+            End If
         
+            'If it's the last of the specific ticker symbol
+            If WS.Cells((i + 1), 1).Value <> ticker Then
+
+                'output year close
+                year_close = WS.Cells(i, 6).Value
+
+                'Calculate yearly change
+                yearly_change = year_close - year_open
+
+                'Output to yearly change column
+                WS.Cells(ticker_count, 10).Value = yearly_change
+
+                'Calculate percent change
+                If year_open = 0 Then
+                    percent_change = yearly_change
+                Else
+                    percent_change = yearly_change / year_open
+                End If
+
+                'Output to percent change column
+                WS.Cells(ticker_count, 11).Value = percent_change
+                'Format to percent
+                WS.Cells(ticker_count, 11).NumberFormat = "0.00%"
+
+                'Color code positive and negative change
+                If yearly_change > 0 Then
+                    WS.Cells(ticker_count, 10).Interior.ColorIndex = 4
+                ElseIf yearly_change < 0 Then
+                    WS.Cells(ticker_count, 10).Interior.ColorIndex = 3
+                
+
+
+
+
+
 End Sub
 
