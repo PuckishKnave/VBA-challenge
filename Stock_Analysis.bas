@@ -90,11 +90,5 @@ Sub Stock_Analysis()
             End If
         Next i 
         
-                
-
-
-
-
-
 End Sub
 
