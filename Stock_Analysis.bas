@@ -88,7 +88,7 @@ Sub Stock_Analysis()
                 End If
             
             End If
-        Next i 
+            Next i 
         
 End Sub
 
