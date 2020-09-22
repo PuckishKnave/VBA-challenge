@@ -31,7 +31,7 @@ Sub Stock_Analysis()
         For i = 2 To lastrow
 
             'Check for new ticker names
-            If WS.Cells(Row, 1).Value <> ticker Then
+            If WS.Cells(i, 1).Value <> ticker Then
 
                 'increase ticker count
                 ticker_count = ticker_count + 1
@@ -52,7 +52,7 @@ Sub Stock_Analysis()
             Else
                 'If ticker symbol is the same add to total
                 total = total + WS.Cells(i, 7).Value
-                WS.Cells(counter, 12).Value = total
+                WS.Cells(ticker_count, 12).Value = total
             End If
         
             'If it's the last of the specific ticker symbol
