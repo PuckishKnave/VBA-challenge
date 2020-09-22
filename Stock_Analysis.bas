@@ -14,6 +14,7 @@ Sub Stock_Analysis()
         Dim percent_change As Double
         Dim lastrow As Double
         
+        ticker = ""
         ticker_count = 1
         total = 0
         year_open = 0
