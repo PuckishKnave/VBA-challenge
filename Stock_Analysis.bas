@@ -85,6 +85,12 @@ Sub Stock_Analysis()
                 ElseIf yearly_change < 0 Then
                     WS.Cells(ticker_count, 10).Interior.ColorIndex = 3
                 
+                End If
+            
+            End If
+        Next i 
+        
+                
 
 
 
