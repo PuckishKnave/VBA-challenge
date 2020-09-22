@@ -12,6 +12,7 @@ Sub Stock_Analysis()
         Dim year_close As Double
         Dim yearly_change As Double
         Dim percent_change As Double
+        Dim lastrow As Double
         
         ticker_count = 1
         total = 0
